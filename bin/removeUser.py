@@ -1,6 +1,13 @@
 import os
 import sys
 
+version = "0.1"
+
+for item in sys.argv:
+	if item == "-v":
+		print version
+		exit();
+
 print "Username"
 username = raw_input().lower();
 
