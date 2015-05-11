@@ -3,6 +3,7 @@ import os
 import crypt
 import time
 import getpass
+import sys
 
 def colored(str, color):
 	start = "\033[1m"
@@ -13,10 +14,18 @@ def colored(str, color):
 
  	return start  + str + "\033[0m"
 
+copyPlaceholder = True
+version = "0.2"
+for item in sys.argv:
+	if item == "--no-placeholder":
+		copyPlaceholder = False
+	if item == "-v":
+		print version
+		exit();
 
 print "##################################"
 print "#                                #"
-print "#   makeUser::RHEA version 0.1   #"
+print "#   makeUser::RHEA version "+ version +"   #"
 print "#   author: im@nielsvermaut.eu   #"
 print "#                                #"
 print "##################################"
@@ -110,7 +119,8 @@ os.system("service apache2 restart")
 if not os.path.exists("/etc/apache2/sites-enabled/" + userurl + ".conf"):
 	print colored("Something went wrong because the site doesn't report back as enabled")
  
-os.system("cp -R ../placeholder/* /home/" + username + "/web")
+if copyPlaceholder == True:
+	os.system("cp -R ../placeholder/* /home/" + username + "/web")
 
 
 print "#####################################"

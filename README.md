@@ -1,8 +1,7 @@
 create
 ======
 
-Create is just a repo where we will manage and store our scripts for daily ops tasks
-that would be considered tedious. The footprint of these scripts are relatively small, you'll just need python, apache2 and of course Linux.
+Create is just a repo where we will manage and store our scripts for daily ops tasks that would be considered tedious. The footprint of these scripts are relatively small, you'll just need python, apache2 and of course Linux.
 
 ## Why is this Open Source (or just published)
 
@@ -13,7 +12,7 @@ We believe that our code will get better if it is published out in the open, ind
 This script is written following some clear conventions
 
 - It makes user accounts, grants those user access in their home folders and makes a web folder where the code should be stored that is accessible via Apache2.
-- The web folder gets symlinked into a folderstructure in the default LAMP location 
+- The web folder gets symlinked into a folderstructure in the default LAMP location.
 
 ## Usage
 
@@ -24,10 +23,12 @@ Because our scripts are relatively small in scope, their usage is predictable an
 ----placeholder (An HTML demo site)
 
 ### Adding users
-Navigate to the create/bin folder and run sudo python makeUser.py
+Navigate to the create/bin folder and run sudo python makeUser.py. By default, the script will copy the contents of the placeholder directory into the newly create webspace. 
+
+If you don't want to happen, use the flag --no-placeholder like so: "sudo python makeUser.py --no-placeholder".
 
 ### Removing a user
-Navigate to the create/bin folder and run sudo python removeUser.py
+Navigate to the create/bin folder and run sudo python removeUser.py.
 
 ### Change the demo site
 There is nothing specific to the demo site, you can edit all the HTML in there, just remember that everything gets copied out of the placeholder folder, so renaming that folder wouldn't be wise.
