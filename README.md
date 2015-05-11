@@ -28,7 +28,7 @@ Navigate to the create/bin folder and run sudo python makeUser.py. By default, t
 If you don't want to happen, use the flag --no-placeholder like so: "sudo python makeUser.py --no-placeholder".
 
 ### Removing a user
-Navigate to the create/bin folder and run sudo python removeUser.py.
+Navigate to the create/bin folder and run sudo python removeUser.py. This script takes the arguments -u (user) and -f (url).
 
 ### Change the demo site
 There is nothing specific to the demo site, you can edit all the HTML in there, just remember that everything gets copied out of the placeholder folder, so renaming that folder wouldn't be wise.
