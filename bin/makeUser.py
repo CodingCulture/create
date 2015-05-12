@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import re
 import os
 import crypt
@@ -13,6 +15,9 @@ def colored(str, color):
 		start == "\033[93m"
 
  	return start  + str + "\033[0m"
+
+def replace_right(source, target, replacement, replacements=None):
+    return replacement.join(source.rsplit(target, replacements))
 
 copyPlaceholder = True
 version = "0.2"
@@ -120,7 +125,8 @@ if not os.path.exists("/etc/apache2/sites-enabled/" + userurl + ".conf"):
 	print colored("Something went wrong because the site doesn't report back as enabled")
  
 if copyPlaceholder == True:
-	os.system("cp -R ../placeholder/* /home/" + username + "/web")
+	placeholder = replace_right(os.path.abspath(__file__), "/bin/makeUser.py", "/placeholder/*", 1);
+	os.system("cp -R " + placeholder  +  " /home/" + username + "/web")
 
 
 print "#####################################"
